@@ -13,3 +13,7 @@ class Location:
 
     def __repr__(self):
         return f"Location({self.x}, {self.y})"
+
+    def distance_to(self, other):
+            """Calculate Manhattan distance to another location"""
+            return abs(self.x - other.x) + abs(self.y - other.y)

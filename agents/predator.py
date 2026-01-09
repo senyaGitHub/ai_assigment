@@ -1,12 +1,15 @@
-from agents.agent import Agent
+#from agents.agent import Agent
 
 class Predator(Agent):
     def __init__(self, name):
-        super().__init__(name, health=100, stamina=100)
+        super().__init__(name, health=100)
+        self.stamina = 100
         self.honour = 0
 
-    def move(self, dx, dy, grid):
+    def move(self, dx, dy, environment):
         if self.stamina <= 0:
             return
         self.stamina -= 1
-        self.x, self.y = grid.wrap_position(self.x + dx, self.y + dy)
+        new_x = self.x + dx
+        new_y = self.y + dy
+        environment.move_agent(self, Location(new_x, new_y))

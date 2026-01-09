@@ -1,11 +1,7 @@
-from agents.predator import Predator
+from agents.agent import Agent
 
-class Dek(Predator):
+
+class Dek(Agent):
     def __init__(self):
-        super().__init__("Dek")
-        self.carrying_thia = False
-
-    def hunt(self, monster):
-        if monster.health > 0:
-            monster.health -= 20
-            self.honour += 5
+        super().__init__("Dek", health=100)
+        self.honour = 0
